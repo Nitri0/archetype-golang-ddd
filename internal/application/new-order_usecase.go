@@ -29,6 +29,7 @@ type CreateOrderCommandHandler struct {
 }
 
 func (a *CreateOrderCommandHandler) Exec(command CreateOrderCommand) (err error) {
+	_, err = a.ProductRepository.SearchByIds(command.ProductIds)
 
-	return nil
+	return
 }

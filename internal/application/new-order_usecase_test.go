@@ -1,7 +1,7 @@
 package application
 
 import (
-	"fmt"
+	"go-archtype-ddd/internal/domain"
 	stub_persistence "go-archtype-ddd/internal/infraestructure/persistence/stub"
 	"testing"
 
@@ -28,6 +28,6 @@ func TestNewOrder(t *testing.T) {
 
 		err := useCase.Exec(command)
 
-		assert.ErrorIs(t, fmt.Errorf("product 111 not exist"), err)
+		assert.ErrorIs(t, domain.ErrProductNotFound, err)
 	})
 }
