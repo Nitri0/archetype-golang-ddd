@@ -1,7 +1,7 @@
 package application
 
 import (
-	"go-archtype-ddd/internal/domain"
+	"archetype-golang-ddd/internal/domain"
 )
 
 func NewCreateOrderCommandHandler(

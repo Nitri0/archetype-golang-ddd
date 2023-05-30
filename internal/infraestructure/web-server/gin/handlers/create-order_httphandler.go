@@ -1,7 +1,7 @@
 package gin_handlers
 
 import (
-	"go-archtype-ddd/internal/application"
+	"archetype-golang-ddd/internal/application"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

@@ -1,7 +1,7 @@
 package stub_persistence
 
 import (
-	"go-archtype-ddd/internal/domain"
+	"archetype-golang-ddd/internal/domain"
 )
 
 func NewStubProductRepository() *StubProductRepository {

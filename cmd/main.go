@@ -1,10 +1,10 @@
 package main
 
 import (
-	"go-archtype-ddd/internal/application"
-	stub_persistence "go-archtype-ddd/internal/infraestructure/persistence/stub"
-	webserver "go-archtype-ddd/internal/infraestructure/web-server"
-	gin_webserver "go-archtype-ddd/internal/infraestructure/web-server/gin"
+	"archetype-golang-ddd/internal/application"
+	stub_persistence "archetype-golang-ddd/internal/infraestructure/persistence/stub"
+	webserver "archetype-golang-ddd/internal/infraestructure/web-server"
+	gin_webserver "archetype-golang-ddd/internal/infraestructure/web-server/gin"
 )
 
 func main() {

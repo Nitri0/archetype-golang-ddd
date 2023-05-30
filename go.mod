@@ -1,4 +1,4 @@
-module go-archtype-ddd
+module archetype-golang-ddd
 
 go 1.20
 

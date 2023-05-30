@@ -1,8 +1,8 @@
 package gin_webserver
 
 import (
-	"go-archtype-ddd/internal/application"
-	gin_handlers "go-archtype-ddd/internal/infraestructure/web-server/gin/handlers"
+	"archetype-golang-ddd/internal/application"
+	gin_handlers "archetype-golang-ddd/internal/infraestructure/web-server/gin/handlers"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,8 +1,8 @@
 package application
 
 import (
-	"go-archtype-ddd/internal/domain"
-	stub_persistence "go-archtype-ddd/internal/infraestructure/persistence/stub"
+	"archetype-golang-ddd/internal/domain"
+	stub_persistence "archetype-golang-ddd/internal/infraestructure/persistence/stub"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
