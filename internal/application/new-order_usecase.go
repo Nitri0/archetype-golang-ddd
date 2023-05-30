@@ -29,7 +29,18 @@ type CreateOrderCommandHandler struct {
 }
 
 func (a *CreateOrderCommandHandler) Exec(command CreateOrderCommand) (order domain.Order, err error) {
-	_, err = a.ProductRepository.SearchByIds(command.ProductIds)
+	products, err := a.ProductRepository.SearchByIds(command.ProductIds)
+
+	if err != nil {
+		return
+	}
+
+	order = domain.Order{
+		ID:         "",
+		Products:   products,
+		ClientRut:  command.ClientRut,
+		ClientName: command.ClientName,
+	}
 
 	return
 }

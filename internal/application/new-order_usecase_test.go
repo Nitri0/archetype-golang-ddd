@@ -26,9 +26,16 @@ func TestNewOrder(t *testing.T) {
 		productRepository := new(ProductRepositoryMock)
 
 		expectedProducts := []domain.Product{
-			{ID: "111"},
-			{ID: "222"},
-			{ID: "333"},
+			{ID: "111", Price: 100},
+			{ID: "222", Price: 50},
+			{ID: "333", Price: 50},
+		}
+
+		expectedOrder := domain.Order{
+			ID:         "",
+			Products:   expectedProducts,
+			ClientRut:  "1213114-1",
+			ClientName: "Nombre Prueba",
 		}
 
 		productRepository.On("SearchByIds", []string{"111", "222", "333"}).Return(expectedProducts, nil)
@@ -44,9 +51,11 @@ func TestNewOrder(t *testing.T) {
 			productRepository,
 		)
 
-		_, err := useCase.Exec(command)
+		order, err := useCase.Exec(command)
 
 		assert.NoError(t, err)
 		productRepository.AssertExpectations(t)
+		assert.Equal(t, 200, order.GetTotalPrice())
+		assert.Equal(t, expectedOrder, order)
 	})
 }
