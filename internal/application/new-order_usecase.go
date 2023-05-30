@@ -28,7 +28,7 @@ type CreateOrderCommandHandler struct {
 	ProductRepository domain.ProductRepository
 }
 
-func (a *CreateOrderCommandHandler) Exec(command CreateOrderCommand) (err error) {
+func (a *CreateOrderCommandHandler) Exec(command CreateOrderCommand) (order domain.Order, err error) {
 	_, err = a.ProductRepository.SearchByIds(command.ProductIds)
 
 	return

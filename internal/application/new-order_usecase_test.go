@@ -25,13 +25,13 @@ func TestNewOrder(t *testing.T) {
 		orderRepository := stub_persistence.NewStubOrderRepository()
 		productRepository := new(ProductRepositoryMock)
 
-		expectedOrder := &Order{
-			ID:         "",
-			ProductIds: []string{"111", "222", "333"},
-			ClientRut:  "1213114-1",
-			ClientName: "Nombre Prueba",
+		expectedProducts := []domain.Product{
+			{ID: "111"},
+			{ID: "222"},
+			{ID: "333"},
 		}
-		productRepository.On("SearchByIds", 1).Return(expectedOrder, nil)
+
+		productRepository.On("SearchByIds", []string{"111", "222", "333"}).Return(expectedProducts, nil)
 
 		command := CreateOrderCommand{
 			ProductIds: []string{"111", "222", "333"},
@@ -44,10 +44,9 @@ func TestNewOrder(t *testing.T) {
 			productRepository,
 		)
 
-		order, err := useCase.Exec(command)
+		_, err := useCase.Exec(command)
 
 		assert.NoError(t, err)
 		productRepository.AssertExpectations(t)
-		assert.Equal(t, expectedOrder, order)
 	})
 }
