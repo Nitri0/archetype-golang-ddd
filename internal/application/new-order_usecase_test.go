@@ -14,7 +14,11 @@ func TestNewOrder(t *testing.T) {
 		orderRepository := stub_persistence.NewStubOrderRepository()
 		productRepository := stub_persistence.NewStubProductRepository()
 
-		command := CreateOrderCommand{}
+		command := CreateOrderCommand{
+			ProductIds: []string{"111", "222", "333"},
+			ClientRut:  "1213114-1",
+			ClientName: "Nombre Prueba",
+		}
 
 		useCase := NewCreateOrderCommandHandler(
 			orderRepository,
