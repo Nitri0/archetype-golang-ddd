@@ -18,8 +18,9 @@ type ICreateOrderCommandHandler interface {
 }
 
 type CreateOrderCommand struct {
-	Ids            []string
-	AuthorizerName string
+	ProductIds []string
+	ClientName string
+	ClientRut  string
 }
 
 type CreateOrderCommandHandler struct {
