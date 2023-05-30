@@ -1,6 +1,7 @@
 package application
 
 import (
+	"fmt"
 	stub_persistence "go-archtype-ddd/internal/infraestructure/persistence/stub"
 	"testing"
 
@@ -27,6 +28,6 @@ func TestNewOrder(t *testing.T) {
 
 		err := useCase.Exec(command)
 
-		assert.NoError(t, err)
+		assert.ErrorIs(t, fmt.Errorf("product 111 not exist"), err)
 	})
 }
